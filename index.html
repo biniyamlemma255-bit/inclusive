@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4fb">
+  <meta name="description" content="A colorful, mobile-first study companion for Inclusiveness — Chapter One.">
+  <title>Inclusiveness — Chapter One | Study Companion</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to study content</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Inclusiveness study home">
+      <span class="brand-mark" aria-hidden="true">in</span>
+      <span><strong>Study bloom</strong><small>Inclusiveness · Chapter One</small></span>
+    </a>
+    <div class="top-actions">
+      <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Toggle theme">
+        <span aria-hidden="true">◐</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR STUDY SPACE</p>
+        <h1 id="heroTitle">Inclusiveness <span>— Chapter One</span></h1>
+        <p class="hero-subtitle">A calmer way to review, remember, and check what you know.</p>
+        <div class="hero-meta">
+          <span class="meta-pill"><span aria-hidden="true">✦</span> 3 study topics</span>
+          <span class="meta-pill"><span aria-hidden="true">◷</span> Self-paced</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-card"><span>remember</span><strong>one step<br>at a time</strong><i>✦</i></div>
+        <span class="art-star star-one">✦</span>
+        <span class="art-star star-two">✳</span>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Study tools">
+      <label class="search-box" for="searchInput">
+        <span aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Search your notes…" autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+      <div class="search-status" id="searchStatus" aria-live="polite"></div>
+    </section>
+
+    <div class="app-layout">
+      <aside class="sidebar" aria-label="Study navigation">
+        <div class="side-label">YOUR MATERIAL</div>
+        <nav class="tabs" aria-label="Study sections">
+          <button class="tab active" type="button" data-view="notes" aria-current="page"><span class="tab-icon">▤</span> Notes <span class="tab-count">01</span></button>
+          <button class="tab" type="button" data-view="quiz"><span class="tab-icon">◉</span> MCQ quiz <span class="tab-count">15</span></button>
+          <button class="tab" type="button" data-view="blanks"><span class="tab-icon">✎</span> Fill-in review <span class="tab-count">15</span></button>
+        </nav>
+        <details class="mobile-toc">
+          <summary>Chapter contents <span aria-hidden="true">⌄</span></summary>
+          <nav id="mobileTableOfContents" aria-label="Chapter table of contents"></nav>
+        </details>
+        <div class="side-divider"></div>
+        <div class="side-label">IN THIS CHAPTER</div>
+        <nav class="toc" id="tableOfContents" aria-label="Table of contents"></nav>
+        <div class="progress-card">
+          <div class="progress-heading"><span>Reading progress</span><strong id="progressPercent">0%</strong></div>
+          <div class="progress-track"><span id="progressBar"></span></div>
+          <small id="progressCaption">A little review goes a long way.</small>
+        </div>
+        <button class="bookmarks-link" type="button" id="showBookmarks"><span aria-hidden="true">♡</span> Bookmarked notes <span id="bookmarkCount">0</span></button>
+      </aside>
+
+      <div class="content-column">
+        <section class="view-panel active" id="notesView" aria-labelledby="notesHeading">
+          <div class="view-heading">
+            <div><p class="eyebrow">CHAPTER READER</p><h2 id="notesHeading">Your notes, in order</h2></div>
+            <span class="heading-stamp">SOURCE NOTES</span>
+          </div>
+          <p class="reader-intro">The notes are kept in their original sequence. Use search to find a phrase, or bookmark a card to return to it later.</p>
+          <div id="notesContainer" class="notes-container"></div>
+          <p class="source-note">The quiz and fill-in review are interactive companions to the questions in the notes above.</p>
+        </section>
+
+        <section class="view-panel" id="quizView" aria-labelledby="quizHeading" hidden>
+          <div class="view-heading">
+            <div><p class="eyebrow">CHECK YOUR RECALL</p><h2 id="quizHeading">MCQ quiz</h2></div>
+            <span class="heading-stamp quiz-stamp">15 QUESTIONS</span>
+          </div>
+          <p class="reader-intro">Choose one answer. Your result and the correct choice appear as soon as you answer.</p>
+          <div class="quiz-summary">
+            <div class="quiz-stat"><span>QUESTION</span><strong id="quizProgress">0 / 15</strong></div>
+            <div class="quiz-stat"><span>SCORE</span><strong id="quizScore">0 / 15</strong></div>
+            <button type="button" class="secondary-button" id="restartQuiz">↻ <span>Restart</span></button>
+          </div>
+          <div id="quizContainer" class="quiz-list"></div>
+        </section>
+
+        <section class="view-panel" id="blanksView" aria-labelledby="blanksHeading" hidden>
+          <div class="view-heading">
+            <div><p class="eyebrow">ACTIVE RECALL</p><h2 id="blanksHeading">Fill-in review</h2></div>
+            <span class="heading-stamp fill-stamp">15 PROMPTS</span>
+          </div>
+          <p class="reader-intro">Each answer is shown directly beneath its original question for quick review.</p>
+          <div id="blanksContainer" class="fill-list"></div>
+        </section>
+
+        <section class="empty-search" id="emptySearch" hidden>
+          <div class="empty-icon">⌕</div>
+          <h3>No matching notes</h3>
+          <p>Try a different word or clear your search.</p>
+          <button type="button" class="secondary-button" id="clearSearch">Clear search</button>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">↑</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
